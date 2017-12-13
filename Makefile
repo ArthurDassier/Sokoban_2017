@@ -19,7 +19,7 @@ CC	=	gcc
 
 C_FLAGS	=	-Wall -Wextra
 
-LIB_FLAG	=	-L$(LIB_DIR) -lmy
+LIB_FLAG	=	-L$(LIB_DIR) -lmy -lncurses
 
 INCL_FLAG	=	-I$(MY.H_DIR)
 
