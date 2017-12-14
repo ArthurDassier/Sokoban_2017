@@ -6,6 +6,8 @@
 ##
 
 SRC	=	srcs/brain.c		\
+		srcs/init.c		\
+		srcs/fcts_while.c	\
 
 OBJ	=	$(SRC:.c = .o)
 
@@ -15,7 +17,7 @@ LIB_DIR	=	./lib
 
 MY.H_DIR	=	./include
 
-CC	=	gcc
+CC	=	gcc -g3
 
 C_FLAGS	=	-Wall -Wextra
 

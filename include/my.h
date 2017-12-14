@@ -16,6 +16,8 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <ncurses.h>
+#include "printf.h"
+#include "sokoban.h"
 
 void my_putchar (char c);
 int my_isneg(int nb);

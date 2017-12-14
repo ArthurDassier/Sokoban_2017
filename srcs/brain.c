@@ -9,16 +9,17 @@
 
 int main(int argc, char *argv[])
 {
-	int		fd = open(argv[1], O_RDONLY);
-	char		*buffer = 0;
+	int	fd = open(argv[1], O_RDONLY);
+	char	*buffer = 0;
+	int	line = 0;
+	coords	cd;
 
-	initscr();
-	move(LINES, COLS);
-	buffer = malloc(sizeof(char) * 1000);
-	read(fd, buffer, sizeof(char) * 1000);
-	printw(buffer);
-	refresh();
-	getch();
+	init_struct(&cd);
+	buffer = init(buffer, fd);
+	line = my_getline(buffer);
+	while(1) {
+		commands(buffer, line);
+	}
 	endwin();
 	close(fd);
 	free(buffer);
