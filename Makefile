@@ -8,6 +8,8 @@
 SRC	=	srcs/brain.c		\
 		srcs/init.c		\
 		srcs/fcts_while.c	\
+		srcs/conditions.c	\
+		srcs/cases_box.c	\
 
 OBJ	=	$(SRC:.c = .o)
 

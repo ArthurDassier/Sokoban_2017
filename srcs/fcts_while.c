@@ -14,6 +14,7 @@ void commands(char *buffer, int line)
 	clear();
 	printw(buffer);
 	coord_p = find_p(buffer);
+	check_boxs(buffer);
 	refresh();
 	get_key(buffer, line, coord_p);
 	usleep(DELAY);
@@ -42,21 +43,17 @@ void get_key(char *buffer, int line, int coord_p)
 {
 	keypad(stdscr, TRUE);
 	int	ch = getch();
+	if (ch == KEY_RIGHT || ch == KEY_LEFT)
+		rightnleft(buffer, coord_p, ch);
+	if (ch == KEY_UP || ch == KEY_DOWN)
+		upndown(buffer, line, coord_p, ch);
+}
 
-	if (ch == KEY_RIGHT && buffer[coord_p + 1] != '#') {
-		buffer[coord_p] = ' ';
-		buffer[coord_p + 1] = 'P';
-	}
-	if (ch == KEY_LEFT && buffer[coord_p - 1] != '#') {
-		buffer[coord_p] = ' ';
-		buffer[coord_p - 1] = 'P';
-	}
-	if (ch == KEY_DOWN && buffer[coord_p + line + 1] != '#') {
-		buffer[coord_p] = ' ';
-		buffer[coord_p + line + 1] = 'P';
-	}
-	if (ch == KEY_UP && buffer[coord_p - line - 1] != '#') {
-		buffer[coord_p] = ' ';
-		buffer[coord_p - line - 1] = 'P';
-	}
+void check_boxs(char *buffer)
+{
+	for(int i = 0; buffer[i] != 'O'; ++i)
+		if (buffer[i] == '\0') {
+			endwin();
+			exit(0);
+		}
 }
