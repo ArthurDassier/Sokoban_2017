@@ -19,16 +19,13 @@ void the_h()
 	exit(0);
 }
 
-int main(int argc, char *argv[])
+int brain(char *argv)
 {
-	int	fd = open(argv[1], O_RDONLY);
+	int	fd = open(argv, O_RDONLY);
 	char	*buffer = NULL;
 	int	line = 0;
-	(void)	argc;
 	coords	cd;
 
-	if (argv[1][0] == '-' && argv[1][1] == 'h')
-		the_h();
 	init_struct(&cd);
 	buffer = init(buffer, fd);
 	line = my_getline(buffer);
@@ -39,5 +36,17 @@ int main(int argc, char *argv[])
 	endwin();
 	close(fd);
 	free(buffer);
+	return (0);
+}
+
+int main(int argc, char *argv[])
+{
+	if (argc == 1 || argc > 2)
+	 	return(84);
+	if (argv[1][0] == '-' && argv[1][1] == 'h') {
+		the_h();
+		return(0);
+	}
+	brain(argv[1]);
 	return (0);
 }

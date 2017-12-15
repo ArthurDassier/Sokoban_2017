@@ -27,7 +27,7 @@ int find_p(char *buffer)
 	for(i = 0; buffer[i]; ++i)
 		if (buffer[i] == 'P')
 			break;
-	return(i);
+	return (i);
 }
 
 int my_getline(char *buffer)
