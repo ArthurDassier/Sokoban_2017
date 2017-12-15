@@ -29,6 +29,7 @@ int brain(char *argv)
 	init_struct(&cd);
 	buffer = init(buffer, fd);
 	line = my_getline(buffer);
+	check_map(buffer);
 	while(1) {
 		commands(buffer, line);
 		check_loose(buffer, line);
@@ -37,6 +38,17 @@ int brain(char *argv)
 	close(fd);
 	free(buffer);
 	return (0);
+}
+
+void check_map(char *buffer)
+{
+	for (int i = 0; buffer[i]; ++i) {
+		if (buffer[i] != '#' && buffer[i] != 'O' && buffer[i] != 'X' &&
+		buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != 'P') {
+			endwin();
+			exit(84);
+		}
+	}
 }
 
 int main(int argc, char *argv[])

@@ -20,6 +20,7 @@ typedef struct coords
 } coords;
 
 int brain(char *argv);
+void check_map(char *buffer);
 char *init(char *buffer, int fd);
 void init_struct(coords *cd);
 void commands(char *buffer, int line);
