@@ -8,6 +8,7 @@
 #ifndef SOKOBAN_H
 #define SOBOKAN_H
 #define DELAY 30000
+#define PATERN 10000
 
 typedef struct coords
 {

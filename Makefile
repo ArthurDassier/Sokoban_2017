@@ -19,7 +19,7 @@ LIB_DIR	=	./lib
 
 MY.H_DIR	=	./include
 
-CC	=	gcc -g3
+CC	=	gcc
 
 C_FLAGS	=	-Wall -Wextra
 

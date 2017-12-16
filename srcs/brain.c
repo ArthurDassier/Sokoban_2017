@@ -36,8 +36,8 @@ int brain(char *argv)
 		commands(buffer, save, line);
 		check_loose(buffer, line);
 	}
-	endwin();
 	close(fd);
+	free(save);
 	free(buffer);
 	return (0);
 }

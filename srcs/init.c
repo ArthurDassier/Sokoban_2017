@@ -9,8 +9,8 @@
 
 char *init(char *buffer, int fd)
 {
-	buffer = malloc(sizeof(char) * 1000);
-	read(fd, buffer, sizeof(char) * 1000);
+	buffer = malloc(sizeof(char) * PATERN);
+	read(fd, buffer, sizeof(char) * PATERN);
 	initscr();
 	noecho();
 	curs_set(FALSE);
@@ -20,7 +20,7 @@ char *init(char *buffer, int fd)
 char *init_save(char *buffer, char *save)
 {
 	int	i;
-	save = malloc(sizeof(char) * 1000);
+	save = malloc(sizeof(char) * PATERN);
 
 	for (i = 0; buffer[i]; ++i)
 		save[i] = buffer[i];
