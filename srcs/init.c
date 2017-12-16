@@ -17,6 +17,17 @@ char *init(char *buffer, int fd)
 	return (buffer);
 }
 
+char *init_save(char *buffer, char *save)
+{
+	int	i;
+	save = malloc(sizeof(char) * 1000);
+
+	for (i = 0; buffer[i]; ++i)
+		save[i] = buffer[i];
+	save[i] = '\0';
+	return (save);
+}
+
 void init_struct(coords *cd)
 {
 	cd->x = 1;

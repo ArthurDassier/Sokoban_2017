@@ -22,13 +22,15 @@ typedef struct coords
 int brain(char *argv);
 void check_map(char *buffer);
 char *init(char *buffer, int fd);
+char *init_save(char *buffer, char *save);
 void init_struct(coords *cd);
-void commands(char *buffer, int line);
+void commands(char *buffer, char *save, int line);
 int find_p(char *buffer);
 void get_key(char *buffer, int line, int coord_p);
 int my_getline(char *buffer);
-void check_boxs(char *buffer);
+void check_bombs(char *buffer, char *save);
 void check_loose(char *buffer, int line);
+void check_2boxs(char *buffer, int line, int i, int j);
 void rightnleft(char *buffer, int coord_p, int ch);
 void upndown(char *buffer, int line, int coord_p, int ch);
 void box_up(char *buffer, int coord_p, int line);

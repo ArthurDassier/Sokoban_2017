@@ -7,16 +7,16 @@
 
 #include "my.h"
 
-void commands(char *buffer, int line)
+void commands(char *buffer, char* save, int line)
 {
 	int	coord_p = 0;
 
 	clear();
 	printw(buffer);
 	coord_p = find_p(buffer);
-	check_boxs(buffer);
-	refresh();
 	get_key(buffer, line, coord_p);
+	check_bombs(buffer, save);
+	refresh();
 	usleep(DELAY);
 }
 
@@ -49,11 +49,19 @@ void get_key(char *buffer, int line, int coord_p)
 		upndown(buffer, line, coord_p, ch);
 }
 
-void check_boxs(char *buffer)
+void check_bombs(char *buffer, char *save)
 {
-	for(int i = 0; buffer[i] != 'O'; ++i)
-		if (buffer[i] == '\0') {
-			endwin();
-			exit(0);
-		}
+	int	i = 0;
+
+	while(save[i]) {
+		if (save[i] == 'O' && buffer[i] == ' ')
+			buffer[i] = 'O';
+		++i;
+	}
+	for (int j = 0; buffer[j]; ++j) {
+		if(save[j] == 'O' && buffer[j] != 'X')
+			return;
+	}
+	endwin();
+	exit(0);
 }

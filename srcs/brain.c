@@ -23,15 +23,17 @@ int brain(char *argv)
 {
 	int	fd = open(argv, O_RDONLY);
 	char	*buffer = NULL;
+	char	*save = NULL;
 	int	line = 0;
 	coords	cd;
 
 	init_struct(&cd);
 	buffer = init(buffer, fd);
+	save = init_save(buffer, save);
 	line = my_getline(buffer);
 	check_map(buffer);
 	while(1) {
-		commands(buffer, line);
+		commands(buffer, save, line);
 		check_loose(buffer, line);
 	}
 	endwin();
