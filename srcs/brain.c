@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
 	err_gest = open(argv[1], O_RDONLY);
 	if (err_gest == -1)
 		return(84);
+	close(err_gest);
 	brain(argv[1]);
 	return (0);
 }
