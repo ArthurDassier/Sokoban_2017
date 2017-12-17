@@ -37,8 +37,6 @@ int brain(char *argv)
 		check_loose(buffer, line);
 	}
 	close(fd);
-	free(save);
-	free(buffer);
 	return (0);
 }
 
@@ -55,12 +53,17 @@ void check_map(char *buffer)
 
 int main(int argc, char *argv[])
 {
+	int	fd;
+
 	if (argc == 1 || argc > 2)
 	 	return(84);
 	if (argv[1][0] == '-' && argv[1][1] == 'h') {
 		the_h();
 		return(0);
 	}
+	fd = open(argv[1], O_WRONLY);
+	if (fd == -1)
+		return(84);
 	brain(argv[1]);
 	return (0);
 }

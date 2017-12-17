@@ -41,8 +41,10 @@ int my_getline(char *buffer)
 
 void get_key(char *buffer, int line, int coord_p)
 {
+	int	ch;
+
 	keypad(stdscr, TRUE);
-	int	ch = getch();
+	ch = getch();
 	if (ch == KEY_RIGHT || ch == KEY_LEFT)
 		rightnleft(buffer, coord_p, ch);
 	if (ch == KEY_UP || ch == KEY_DOWN)
