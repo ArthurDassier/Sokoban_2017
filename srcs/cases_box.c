@@ -9,8 +9,7 @@
 
 void box_up(char *buffer, int coord_p, int line)
 {
-	if(buffer[coord_p - line * 2 - 2] != '#' &&
-	buffer[coord_p - line * 2 - 2] != 'X') {
+	if(buffer[coord_p - line * 2 - 2] != '#' && buffer[coord_p - line * 2 - 2] != 'X') {
 		buffer[coord_p] = ' ';
 		buffer[coord_p - line - 1] = 'P';
 		buffer[coord_p -line * 2 - 2] = 'X';
@@ -19,8 +18,7 @@ void box_up(char *buffer, int coord_p, int line)
 
 void box_dwn(char *buffer, int coord_p, int line)
 {
-	if(buffer[coord_p + line * 2 + 2] != '#' &&
-	buffer[coord_p + line * 2 + 2] != 'X') {
+	if(buffer[coord_p + line * 2 + 2] != '#' && buffer[coord_p + line * 2 + 2] != 'X') {
 		buffer[coord_p] = ' ';
 		buffer[coord_p + line + 1] = 'P';
 		buffer[coord_p + line * 2 + 2] = 'X';
